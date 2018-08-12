@@ -52,7 +52,7 @@ def EDSR(input_image):
         W2 = weight_variable([3, 3, 8, 3], name='W2')
         x_res = tf.nn.conv2d(up1, W2, strides=[1, 1, 1, 1], padding='SAME')
 
-        output = 0.4 * x_res +  x_main + 0.5 * input_image
+        output = 0.4 * x_res +  0.1 * x_main + 0.5 * input_image
         output = output + tf.reshape([114.45, 111.47, 103.03], [1, 1, 1, 3])/255
     return output
 
